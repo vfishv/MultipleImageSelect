@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.darsh.multipleimageselect.R;
 import com.darsh.multipleimageselect.models.Image;
 
@@ -51,10 +52,10 @@ public class CustomImageSelectAdapter extends CustomGenericAdapter<Image> {
             viewHolder.view.setAlpha(0.0f);
             ((FrameLayout) convertView).setForeground(null);
         }
-
+        RequestOptions options = new RequestOptions().placeholder(R.drawable.image_placeholder);
         Glide.with(context)
                 .load(arrayList.get(position).path)
-                .placeholder(R.drawable.image_placeholder).into(viewHolder.imageView);
+                .apply(options).into(viewHolder.imageView);
 
         return convertView;
     }
