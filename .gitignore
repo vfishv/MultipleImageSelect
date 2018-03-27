@@ -8,3 +8,4 @@
 /captures
 bintrayUpload.gradle
 gradle/
+*.iml
